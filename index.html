@@ -1,162 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTU MSA – General Body Meeting</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
-      background: #f9f8f3;
-      color: #333;
-    }
-    .slides {
-      position: relative;
-      height: 100%;
-      width: 100%;
-    }
-    .slide {
-      position: absolute;
-      top: 0; left: 0;
-      height: 100%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 0.6s ease;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-    .slide.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-    .slide h1, .slide h2 {
-      margin: 0.5em 0;
-    }
-    .nav-buttons {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      text-align: center;
-    }
-    .nav-buttons button {
-      margin: 0 10px;
-      padding: 10px 20px;
-      font-size: 1em;
-      cursor: pointer;
-    }
-    img.logo {
-      max-width: 300px;
-      height: auto;
-      margin-bottom: 1em;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HTU Muslim Student Association — First General Body Meeting</title>
+<style>
+  :root {
+    --maroon: #7a1f24;
+    --cream: #fdf9f3;
+    --gold: #c8a04b;
+  }
+  * { box-sizing: border-box; }
+  body, html {
+    margin: 0; padding: 0;
+    height: 100%; width: 100%;
+    overflow: hidden;
+    font-family: "Poppins", "Montserrat", sans-serif;
+    background-color: var(--cream);
+    color: var(--maroon);
+  }
+  .slides {
+    position: relative;
+    height: 100%; width: 100%;
+  }
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.8s ease;
+    padding: 2rem;
+  }
+  .slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 2;
+  }
+  h1 {
+    font-size: 2.2em;
+    margin-bottom: 0.3em;
+  }
+  h2 {
+    font-size: 1.5em;
+    margin: 0.2em 0;
+    color: var(--gold);
+  }
+  p, li {
+    font-size: 1.1em;
+    line-height: 1.6;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  ul li::before {
+    content: "• ";
+    color: var(--gold);
+  }
+  img.logo {
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 1em;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+  }
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  .fade-text {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s ease forwards 0.5s;
+  }
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .nav-buttons {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+  }
+  .nav-buttons button {
+    margin: 0 10px;
+    padding: 10px 25px;
+    font-size: 1em;
+    background-color: var(--maroon);
+    color: var(--cream);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .nav-buttons button:hover {
+    background-color: var(--gold);
+    color: var(--maroon);
+  }
+</style>
 </head>
 <body>
 
-  <div class="slides">
-    <!-- Slide 1: Intro / Logo -->
-    <div class="slide active" id="slide-1">
-      <div>
-        <img src="logo.jpeg" alt="HTU MSA Logo" class="logo">
-        <h1>Welcome to HTU MSA</h1>
-        <h2>General Body Meeting</h2>
-      </div>
-    </div>
-
-    <!-- Slide 2: Leadership Introductions -->
-    <div class="slide" id="slide-2">
-      <div>
-        <h1>Our Leadership Team</h1>
-        <h2>Advisor</h2>
-        <p>Rev. Marcus Jones</p>
-        <h2>President</h2>
-        <p>Abdulwakil Abdulkadir</p>
-        <h2>Vice President</h2>
-        <p>Abdulwadud Abdulkadir</p>
-        <h2>Treasurer</h2>
-        <p>Morgan Johnson</p>
-        <h2>Outreach Manager</h2>
-        <p>Qudus Ganiyu</p>
-        <h2>Secretary</h2>
-        <p>Nabil Ajiboye</p>
-        <h2>Events & Media Coordinator</h2>
-        <p>Fathia Rabiu</p>
-      </div>
-    </div>
-
-    <!-- Slide 3: Ice Breaker -->
-    <div class="slide" id="slide-3">
-      <div>
-        <h1>Ice Breaker Activity</h1>
-        <p id="icebreaker-instructions">We’ll play: “Two Truths and a Faith-Fact”. Each person shares 2 true things + 1 surprise fact (faith-related or personal), and the group guesses which is the surprise. Ready?</p>
-      </div>
-    </div>
-
-    <!-- Slide 4: Goals of HTU MSA -->
-    <div class="slide" id="slide-4">
-      <div>
-        <h1>Our Goals</h1>
-        <p>To support Muslim students socially and spiritually.</p>
-        <ul style="text-align:left; display:inline-block; margin-top:1em;">
-          <li>Build a welcoming community for support</li>
-          <li>Organi se weekly or bi-weekly halaqas</li>
-          <li>Game nights, fundraisers, community service</li>
-          <li>Collaborate with other student orgs (eg. BMA at UT)</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Slide 5: Resources Available -->
-    <div class="slide" id="slide-5">
-      <div>
-        <h1>Resources</h1>
-        <ul style="text-align:left; display:inline-block; margin-top:1em;">
-          <li>Nueces Mosque</li>
-          <li>ICGA Masjid</li>
-          <li>MSA Lone Star Council (MSA Showdown & Student Scholarships)</li>
-        </ul>
-      </div>
-    </div>
-
+<div class="slides">
+  <!-- 1 -->
+  <div class="slide active">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIy" 
+      alt="HTU MSA Logo" class="logo"/>
+    <h1 class="fade-text">HTU Muslim Student Association</h1>
+    <h2 class="fade-text">First General Body Meeting</h2>
   </div>
 
-  <div class="nav-buttons">
-    <button id="prevBtn">Previous</button>
-    <button id="nextBtn">Next</button>
+  <!-- 2 -->
+  <div class="slide">
+    <h1 class="fade-text">Leadership Introductions</h1>
+    <ul class="fade-text">
+      <li><strong>Advisor:</strong> Rev. Marcus Jones</li>
+      <li><strong>President:</strong> Abdulwakil Abdulkadir</li>
+      <li><strong>Vice President:</strong> Abdulwadud Abdulkadir</li>
+      <li><strong>Treasurer:</strong> Morgan Johnson</li>
+      <li><strong>Outreach Manager:</strong> Qudus Ganiyu</li>
+      <li><strong>Secretary:</strong> Nabil Ajiboye</li>
+      <li><strong>Events & Media Coordinator:</strong> Fathia Rabiu</li>
+    </ul>
   </div>
 
-  <script>
-    const slides = document.querySelectorAll('.slide');
-    let current = 0;
+  <!-- 3 -->
+  <div class="slide">
+    <h1 class="fade-text">Ice Breaker</h1>
+    <p class="fade-text"><strong>Game:</strong> “Two Truths and a Faith-Fact”</p>
+    <p class="fade-text">Each person shares two true things about themselves and one surprise faith-related fact. The group guesses which is the surprise!</p>
+  </div>
 
-    document.getElementById('nextBtn').addEventListener('click', () => {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    });
+  <!-- 4 -->
+  <div class="slide">
+    <h1 class="fade-text">Goal of HTU MSA</h1>
+    <p class="fade-text">To support Muslim students socially and spiritually and to build a strong campus community.</p>
+    <ul class="fade-text">
+      <li>Weekly / Bi-weekly Halaqas</li>
+      <li>Game Nights & Fundraisers</li>
+      <li>Community Service Events</li>
+      <li>Collaborations with BMA at UT</li>
+    </ul>
+  </div>
 
-    document.getElementById('prevBtn').addEventListener('click', () => {
-      slides[current].classList.remove('active');
-      current = (current - 1 + slides.length) % slides.length;
-      slides[current].classList.add('active');
-    });
+  <!-- 5 -->
+  <div class="slide">
+    <h1 class="fade-text">Resources Available</h1>
+    <ul class="fade-text">
+      <li>Nueces Mosque</li>
+      <li>ICGA Masjid</li>
+      <li>MSA Lone Star Council (Showdown & Scholarships)</li>
+    </ul>
+  </div>
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ') {
-        document.getElementById('nextBtn').click();
-      } else if (e.key === 'ArrowLeft') {
-        document.getElementById('prevBtn').click();
-      }
-    });
-  </script>
+  <!-- 6 -->
+  <div class="slide">
+    <h1 class="fade-text">Thank You!</h1>
+    <p class="fade-text">Please fill the short survey below</p>
+    <img src="putqrcodehere" alt="Survey QR Code" style="max-width:200px;margin-top:1em;" class="fade-text"/>
+  </div>
+</div>
+
+<div class="nav-buttons">
+  <button id="prevBtn">Previous</button>
+  <button id="nextBtn">Next</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  function showSlide(i) {
+    slides[current].classList.remove('active');
+    current = (i + slides.length) % slides.length;
+    slides[current].classList.add('active');
+  }
+
+  document.getElementById('nextBtn').addEventListener('click', () => showSlide(current + 1));
+  document.getElementById('prevBtn').addEventListener('click', () => showSlide(current - 1));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') showSlide(current + 1);
+    if (e.key === 'ArrowLeft') showSlide(current - 1);
+  });
+</script>
 </body>
 </html>
