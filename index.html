@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTU MSA – General Body Meeting</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: #f9f8f3;
+      color: #333;
+    }
+    .slides {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+    .slide {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .slide.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .slide h1, .slide h2 {
+      margin: 0.5em 0;
+    }
+    .nav-buttons {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+    }
+    .nav-buttons button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    img.logo {
+      max-width: 300px;
+      height: auto;
+      margin-bottom: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slides">
+    <!-- Slide 1: Intro / Logo -->
+    <div class="slide active" id="slide-1">
+      <div>
+        <img src="logo.jpeg" alt="HTU MSA Logo" class="logo">
+        <h1>Welcome to HTU MSA</h1>
+        <h2>General Body Meeting</h2>
+      </div>
+    </div>
+
+    <!-- Slide 2: Leadership Introductions -->
+    <div class="slide" id="slide-2">
+      <div>
+        <h1>Our Leadership Team</h1>
+        <h2>Advisor</h2>
+        <p>Rev. Marcus Jones</p>
+        <h2>President</h2>
+        <p>Abdulwakil Abdulkadir</p>
+        <h2>Vice President</h2>
+        <p>Abdulwadud Abdulkadir</p>
+        <h2>Treasurer</h2>
+        <p>Morgan Johnson</p>
+        <h2>Outreach Manager</h2>
+        <p>Qudus Ganiyu</p>
+        <h2>Secretary</h2>
+        <p>Nabil Ajiboye</p>
+        <h2>Events & Media Coordinator</h2>
+        <p>Fathia Rabiu</p>
+      </div>
+    </div>
+
+    <!-- Slide 3: Ice Breaker -->
+    <div class="slide" id="slide-3">
+      <div>
+        <h1>Ice Breaker Activity</h1>
+        <p id="icebreaker-instructions">We’ll play: “Two Truths and a Faith-Fact”. Each person shares 2 true things + 1 surprise fact (faith-related or personal), and the group guesses which is the surprise. Ready?</p>
+      </div>
+    </div>
+
+    <!-- Slide 4: Goals of HTU MSA -->
+    <div class="slide" id="slide-4">
+      <div>
+        <h1>Our Goals</h1>
+        <p>To support Muslim students socially and spiritually.</p>
+        <ul style="text-align:left; display:inline-block; margin-top:1em;">
+          <li>Build a welcoming community for support</li>
+          <li>Organi se weekly or bi-weekly halaqas</li>
+          <li>Game nights, fundraisers, community service</li>
+          <li>Collaborate with other student orgs (eg. BMA at UT)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Slide 5: Resources Available -->
+    <div class="slide" id="slide-5">
+      <div>
+        <h1>Resources</h1>
+        <ul style="text-align:left; display:inline-block; margin-top:1em;">
+          <li>Nueces Mosque</li>
+          <li>ICGA Masjid</li>
+          <li>MSA Lone Star Council (MSA Showdown & Student Scholarships)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="nav-buttons">
+    <button id="prevBtn">Previous</button>
+    <button id="nextBtn">Next</button>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      slides[current].classList.remove('active');
+      current = (current - 1 + slides.length) % slides.length;
+      slides[current].classList.add('active');
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        document.getElementById('nextBtn').click();
+      } else if (e.key === 'ArrowLeft') {
+        document.getElementById('prevBtn').click();
+      }
+    });
+  </script>
+</body>
+</html>
