@@ -102,6 +102,117 @@
     background-color: var(--gold);
     color: var(--maroon);
   }
+  /* Leadership Cards */
+  .leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    width: 100%;
+    padding: 1rem;
+  }
+  .leader-card {
+    background: linear-gradient(135deg, rgba(122, 31, 36, 0.05) 0%, rgba(200, 160, 75, 0.05) 100%);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .leader-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(122, 31, 36, 0.2);
+  }
+  .leader-role {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+  .leader-name {
+    color: var(--maroon);
+    font-size: 1.2em;
+    font-weight: 500;
+  }
+  /* Ice Breaker Styling */
+  .icebreaker-box {
+    background: linear-gradient(135deg, var(--maroon) 0%, rgba(122, 31, 36, 0.8) 100%);
+    color: var(--cream);
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 700px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  .icebreaker-box h2 {
+    color: var(--gold);
+    margin-top: 0;
+  }
+  .icebreaker-box p {
+    margin: 1rem 0;
+  }
+  .timer-note {
+    background-color: rgba(200, 160, 75, 0.2);
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    font-size: 0.95em;
+  }
+  /* Goals Section */
+  .goals-container {
+    max-width: 800px;
+  }
+  .goal-item {
+    background: linear-gradient(90deg, rgba(200, 160, 75, 0.1) 0%, transparent 100%);
+    border-left: 4px solid var(--gold);
+    padding: 1rem 1.5rem;
+    margin: 1rem 0;
+    border-radius: 0 8px 8px 0;
+    transition: transform 0.2s;
+  }
+  .goal-item:hover {
+    transform: translateX(10px);
+  }
+  /* Resources Section */
+  .resources-grid {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 700px;
+    width: 100%;
+  }
+  .resource-card {
+    background: white;
+    border: 3px solid var(--maroon);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s;
+  }
+  .resource-card:hover {
+    border-color: var(--gold);
+    transform: scale(1.05);
+  }
+  .resource-card h3 {
+    color: var(--maroon);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3em;
+  }
+  .resource-card p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #666;
+  }
+  /* Thank You Section */
+  .thank-you-content {
+    max-width: 600px;
+  }
+  .qr-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    display: inline-block;
+    box-shadow: 0 8px 25px rgba(122, 31, 36, 0.15);
+    margin-top: 1.5rem;
+  }
 </style>
 </head>
 <body>
@@ -118,51 +229,108 @@
   <!-- 2 -->
   <div class="slide">
     <h1 class="fade-text">Leadership Introductions</h1>
-    <ul class="fade-text">
-      <li><strong>Advisor:</strong> Rev. Marcus Jones</li>
-      <li><strong>President:</strong> Abdulwakil Abdulkadir</li>
-      <li><strong>Vice President:</strong> Abdulwadud Abdulkadir</li>
-      <li><strong>Treasurer:</strong> Morgan Johnson</li>
-      <li><strong>Outreach Manager:</strong> Qudus Ganiyu</li>
-      <li><strong>Secretary:</strong> Nabil Ajiboye</li>
-      <li><strong>Events & Media Coordinator:</strong> Fathia Rabiu</li>
-    </ul>
+    <div class="leadership-grid fade-text">
+      <div class="leader-card">
+        <div class="leader-role">Advisor</div>
+        <div class="leader-name">Rev. Marcus Jones</div>
+      </div>
+      <div class="leader-card">
+        <div class="leader-role">President</div>
+        <div class="leader-name">Abdulwakil Abdulkadir</div>
+      </div>
+      <div class="leader-card">
+        <div class="leader-role">Vice President</div>
+        <div class="leader-name">Abdulwadud Abdulkadir</div>
+      </div>
+      <div class="leader-card">
+        <div class="leader-role">Treasurer</div>
+        <div class="leader-name">Morgan Johnson</div>
+      </div>
+      <div class="leader-card">
+        <div class="leader-role">Outreach Manager</div>
+        <div class="leader-name">Qudus Ganiyu</div>
+      </div>
+      <div class="leader-card">
+        <div class="leader-role">Secretary</div>
+        <div class="leader-name">Nabil Ajiboye</div>
+      </div>
+      <div class="leader-card">
+        <div class="leader-role">Events & Media</div>
+        <div class="leader-name">Fathia Rabiu</div>
+      </div>
+    </div>
   </div>
 
   <!-- 3 -->
   <div class="slide">
-    <h1 class="fade-text">Ice Breaker</h1>
-    <p class="fade-text"><strong>Game:</strong> “Two Truths and a Faith-Fact”</p>
-    <p class="fade-text">Each person shares two true things about themselves and one surprise faith-related fact. The group guesses which is the surprise!</p>
+    <h1 class="fade-text">Ice Breaker Activity</h1>
+    <div class="icebreaker-box fade-text">
+      <h2>Find Your Match!</h2>
+      <p><strong>How it works:</strong> Pair up with someone you don't know well. You have 3 minutes to discover:</p>
+      <ul style="text-align: left; max-width: 500px; margin: 1rem auto;">
+        <li>One hobby or interest you share</li>
+        <li>One place you both want to visit</li>
+        <li>One goal you both have for this semester</li>
+      </ul>
+      <div class="timer-note">
+        ⏱️ After 3 minutes, switch partners and repeat! Each pair will share their best match with the group.
+      </div>
+    </div>
   </div>
 
   <!-- 4 -->
   <div class="slide">
     <h1 class="fade-text">Goal of HTU MSA</h1>
-    <p class="fade-text">To support Muslim students socially and spiritually and to build a strong campus community.</p>
-    <ul class="fade-text">
-      <li>Weekly / Bi-weekly Halaqas</li>
-      <li>Game Nights & Fundraisers</li>
-      <li>Community Service Events</li>
-      <li>Collaborations with BMA at UT</li>
-    </ul>
+    <p class="fade-text" style="max-width: 700px; margin-bottom: 2rem;">To support Muslim students socially and spiritually and to build a strong campus community.</p>
+    <div class="goals-container fade-text">
+      <div class="goal-item">
+        <strong>🕌 Weekly / Bi-weekly Halaqas</strong>
+        <p style="margin: 0.5rem 0 0 0; font-size: 0.95em;">Spiritual growth and knowledge sharing sessions</p>
+      </div>
+      <div class="goal-item">
+        <strong>🎮 Game Nights & Fundraisers</strong>
+        <p style="margin: 0.5rem 0 0 0; font-size: 0.95em;">Building community through fun and meaningful events</p>
+      </div>
+      <div class="goal-item">
+        <strong>🤝 Community Service Events</strong>
+        <p style="margin: 0.5rem 0 0 0; font-size: 0.95em;">Making a positive impact together</p>
+      </div>
+      <div class="goal-item">
+        <strong>🌟 Collaborations with BMA at UT</strong>
+        <p style="margin: 0.5rem 0 0 0; font-size: 0.95em;">Strengthening connections across campuses</p>
+      </div>
+    </div>
   </div>
 
   <!-- 5 -->
   <div class="slide">
     <h1 class="fade-text">Resources Available</h1>
-    <ul class="fade-text">
-      <li>Nueces Mosque</li>
-      <li>ICGA Masjid</li>
-      <li>MSA Lone Star Council (Showdown & Scholarships)</li>
-    </ul>
+    <div class="resources-grid fade-text">
+      <div class="resource-card">
+        <h3>🕌 Nueces Mosque</h3>
+        <p>Local prayer space and community center</p>
+      </div>
+      <div class="resource-card">
+        <h3>🕌 ICGA Masjid</h3>
+        <p>Islamic Center for spiritual and community activities</p>
+      </div>
+      <div class="resource-card">
+        <h3>🏆 MSA Lone Star Council</h3>
+        <p>Regional network offering Showdown events & Scholarships</p>
+      </div>
+    </div>
   </div>
 
   <!-- 6 -->
   <div class="slide">
-    <h1 class="fade-text">Thank You!</h1>
-    <p class="fade-text">Please fill the short survey below</p>
-    <img src="code.png" alt="Survey QR Code" style="max-width:200px;margin-top:1em;" class="fade-text"/>
+    <div class="thank-you-content fade-text">
+      <h1>Thank You!</h1>
+      <p style="font-size: 1.2em; margin: 1.5rem 0;">We're excited to have you as part of our community!</p>
+      <p>Please scan the QR code below to fill out a short survey</p>
+      <div class="qr-container">
+        <img src="code.png" alt="Survey QR Code" style="max-width:200px; display: block;"/>
+      </div>
+    </div>
   </div>
 </div>
 
